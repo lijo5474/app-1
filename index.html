@@ -1,0 +1,137 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title> Auto Grade </title>
+<link href="css/bootstrap.min.css" type="text/css" rel="stylesheet"/>
+<link href="css/main-style.css" type="text/css" rel="stylesheet"/>
+<link href="css/responsive.css" type="text/css" rel="stylesheet"/>
+<!--main menu-->
+<link rel="stylesheet" href="css/menu-style.css" type="text/css" />
+<!--main menu-->
+<link href="css/bootstrap-icons.css" type="text/css" rel="stylesheet"/>
+<!--bootstrap icons-->
+<!--div slider-->
+<link rel="stylesheet" href="css/owl.carousel.min.css"/>
+<link rel="stylesheet" href="css/owl.theme.default.min.css"/>
+
+
+</head>
+
+<body>
+
+<!-- <section id="logo-hder-1st">
+  <div class="container">  
+    <div class="logo-select-optn"> <img src="images/logo.png" class="img-fluid" alt="Logo"/> </div>
+    
+  </div>
+  <img src="images/bg-1.png" class="img-fluid" alt="Logo"/>
+</section>  -->
+<img src="images/login-new.jpg" class="img-fluid" alt="Logo"/>
+
+<section id="login-select-mode">
+  <div class="container">
+    
+    <h1> Select your Franchise </h1>
+    <div class="form-inpts-wrpr">
+      <div class="row">
+        <div class="col-12">
+          <div class="frn-mac-item">
+            <span class="custom-dropdown custom-dropdown--white ctry-stt">
+							<select class="custom-dropdown__select custom-dropdown__select--white " name="state_id_pdct" id="state_id_pdct" onchange="return checkgrm();">
+              <option>Franchise Name</option>
+              <option value="1">One</option>
+              <option value="2">Two</option>
+            </select>
+            </span>
+          </div>  
+        </div>  
+
+        <div class="col-12">
+          <div class="frn-mac-item">
+            <input type="text" placeholder="Machine ID" class="frm-frn-com">
+          </div>  
+        </div>
+
+        <div class="col-12">
+          <div class="frn-mac-item">
+            <a href="login.html" class="btn btn-primary submit-bttn_1"> Proceed </a>
+          </div>  
+        </div>
+
+      </div>  
+    </div>  
+    <div class="ib-logo-fotr"> <img src="images/ib-logo.png" class="img-fluid" alt="Ibusiness suite"/> </div>
+  </div>  
+</section>
+
+
+
+
+
+<script src="js/jquery.js"></script> 
+<script src="js/bootstrap.min.js"></script> 
+
+<!--common scripts--> 
+<script src="js/common.js"></script> 
+<!--common scripts--> 
+
+<!--div slider--> 
+<script src="js/owl.carousel.js"></script> 
+<!--div slider--> 
+
+<!-- select option -->
+<script>
+  $(function () {
+    $(".ddl-select").each(function () {
+      $(this).hide();
+      var $select = $(this);
+      var _id = $(this).attr("id");
+      var wrapper = document.createElement("div");
+      wrapper.setAttribute("class", "ddl ddl_" + _id);
+  
+      var input = document.createElement("input");
+      input.setAttribute("type", "text");
+      input.setAttribute("class", "ddl-input");
+      input.setAttribute("id", "ddl_" + _id);
+      input.setAttribute("readonly", "readonly");
+      input.setAttribute(
+        "placeholder",
+        $(this)[0].options[$(this)[0].selectedIndex].innerText
+      );
+  
+      $(this).before(wrapper);
+      var $ddl = $(".ddl_" + _id);
+      $ddl.append(input);
+      $ddl.append("<div class='ddl-options ddl-options-" + _id + "'></div>");
+      var $ddl_input = $("#ddl_" + _id);
+      var $ops_list = $(".ddl-options-" + _id);
+      var $ops = $(this)[0].options;
+      for (var i = 0; i < $ops.length; i++) {
+        $ops_list.append(
+          "<div data-value='" +
+            $ops[i].value +
+            "'>" +
+            $ops[i].innerText +
+            "</div>"
+        );
+      }
+  
+      $ddl_input.click(function () {
+        $ddl.toggleClass("active");
+      });
+      $ddl_input.blur(function () {
+        $ddl.removeClass("active");
+      });
+      $ops_list.find("div").click(function () {
+        $select.val($(this).data("value")).trigger("change");
+        $ddl_input.val($(this).text());
+        $ddl.removeClass("active");
+      });
+    });
+  });
+  
+  </script>
+  <!-- select option -->
+</body></html>
